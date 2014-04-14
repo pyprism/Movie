@@ -1,9 +1,9 @@
 {
-  "name": "imdb-cli",
-  "version": "0.0.1",
-  "description": "Search for basic info from IMDB from terminal",
+  "name": "Movie",
+  "version": "0.0.4",
+  "description": "Search for basic info from IMDB and Rotten Tomato from terminal",
   "bin": {
-    "imdb": "hiren.js"
+    "movie": "hiren.js"
   },
   "preferGlobal": true,
   "main": "hiren.js",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/pyprism/imdb-cli.git"
+    "url": "git@github.com:pyprism/Movie.git"
   },
   "keywords": [
     "imdb",
@@ -21,9 +21,9 @@
   "author": "Ashutosh Das",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pyprism/imdb-cli/issues"
+    "url": "https://github.com/pyprism/Movie/issues"
   },
-  "homepage": "https://github.com/pyprism/imdb-cli",
+  "homepage": "https://github.com/pyprism/Movie",
   "dependencies": {
     "request": "^2.34.0"
   }
