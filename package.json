@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/pyprism/Movie",
   "dependencies": {
+    "cli-table": "^0.3.0",
     "request": "^2.34.0"
   }
 }
