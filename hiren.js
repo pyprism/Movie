@@ -7,9 +7,7 @@ function getMovieInfo() {
     request({
         uri: "http://0.0.0.0:5000/cli-movie",
         method: "POST",
-        form: {
-            'movie': 'valuesaasa', 'year': ''
-        }
+        form: cli()
     }, function (error, response, body) {
         console.log(body);
     });
@@ -25,8 +23,9 @@ function cli() {
         process.exit(1);
     }
     else{
-        if(process.argv.slice(3) = "" ) return { 'movie' : data , 'year' : "" }
-        else return { 'movie' : data , 'year' : process.argv.slice(3) }
+        //if(process.argv.slice(3) == "" ) return { 'movie' : data , 'year' : "" }
+        //else return { 'movie' : data , 'year' : process.argv.slice(3) }
+        console.log({ 'movie' : data , 'year' : process.argv.slice(3) });
     }
 
 }
@@ -41,3 +40,5 @@ function table(rating , type , year , genre , movieName) {
     console.log(table.toString());
 
 }
+
+cli();
