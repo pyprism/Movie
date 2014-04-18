@@ -9,7 +9,9 @@ function getMovieInfo() {
         method: "POST",
         form: cli()
     }, function (error, response, body) {
-        console.log(body);
+        var json = JSON.parse(body);
+        console.log(json['Genre']);
+        //table(json['Rating'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
     });
 
 }
@@ -23,12 +25,12 @@ function cli() {
         process.exit(1);
     }
     else{
-        //if(process.argv.slice(3) == "" ) return { 'movie' : data , 'year' : "" }
-        //else return { 'movie' : data , 'year' : process.argv.slice(3) }
-        console.log({ 'movie' : data , 'year' : process.argv.slice(3) });
+        if(process.argv.slice(3) == "" ) return { 'movie' : data[0] , 'year' : "" }
+        else return { 'movie' : data[0] , 'year' : process.argv.slice(3)[0] }
+        //console.log({ 'movie' : data[0] , 'year' : process.argv.slice(3)[0] });
     }
 
-}
+} // execute immediately
 
 
 function table(rating , type , year , genre , movieName) {
@@ -41,4 +43,3 @@ function table(rating , type , year , genre , movieName) {
 
 }
 
-cli();
