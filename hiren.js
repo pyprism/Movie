@@ -10,16 +10,17 @@ function getMovieInfo() {
         form: cli()
     }, function (error, response, body) {
         var json = JSON.parse(body);
-        //if(!json['error']) {
+        if(!json['error']) {
            // console.log(json['Genre']);
         //console.log(body);
-            table(json['imdbRating'] , json['Rated'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
+            table( json['"Awards"'] ,json['imdbRating'] , json['Rated'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
             //console.log(json['Rating'] );
            // console.log(json['Runtime']);
            // console.log(json['Year']);
            // console.log(json['Genre']);
            // console.log(json['Title']);
-       // }
+        }
+        else console.log("Movie you Are searching is not found :( ");
     });
 
 }
@@ -41,24 +42,16 @@ function cli() {
 } // execute immediately
 
 
-function table(imdbRating , rated , type , year , genre , movieName) {
+function table(awards ,imdbRating , rated , type , year , genre , movieName) {
     var table = new Table({ head: [ movieName , 'Rating', 'Rated' , 'Type' , 'Year' , 'Genre'] });
 
     table.push(
-        { 'IMDB': [ imdbRating , rated, type , year , genre] }
+        { 'IMDB': [ awards, imdbRating , rated, type , year , genre] }
     );
     console.log(table.toString());
 
 }
 
-function tables() {
-    var table = new Table({ head: ["Adss" , 'Rating' , 'Type' , 'Year' , 'Genre'] });
 
-    table.push(
-        { 'IMDB': ["sa","Sd" , "Sds" , "ADs"] }
-    );
-    console.log(table.toString());
-
-}
 
 getMovieInfo();
