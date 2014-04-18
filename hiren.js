@@ -10,10 +10,16 @@ function getMovieInfo() {
         form: cli()
     }, function (error, response, body) {
         var json = JSON.parse(body);
-        if(!json['error']) {
-            console.log(json['Genre']);
-            //table(json['Rating'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
-        }
+        //if(!json['error']) {
+           // console.log(json['Genre']);
+        //console.log(body);
+            table(json['imdbRating'] , json['Rated'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
+            //console.log(json['Rating'] );
+           // console.log(json['Runtime']);
+           // console.log(json['Year']);
+           // console.log(json['Genre']);
+           // console.log(json['Title']);
+       // }
     });
 
 }
@@ -35,17 +41,17 @@ function cli() {
 } // execute immediately
 
 
-function table(rating , type , year , genre , movieName) {
-    var table = new Table({ head: [ movieName , 'Rating' , 'Type' , 'Year' , 'Genre'] });
+function table(imdbRating , rated , type , year , genre , movieName) {
+    var table = new Table({ head: [ movieName , 'Rating', 'Rated' , 'Type' , 'Year' , 'Genre'] });
 
     table.push(
-        { 'IMDB': [rating, type , year , genre] }
+        { 'IMDB': [ imdbRating , rated, type , year , genre] }
     );
     console.log(table.toString());
 
 }
 
-(function tables() {
+function tables() {
     var table = new Table({ head: ["Adss" , 'Rating' , 'Type' , 'Year' , 'Genre'] });
 
     table.push(
@@ -53,4 +59,6 @@ function table(rating , type , year , genre , movieName) {
     );
     console.log(table.toString());
 
-}())
+}
+
+getMovieInfo();
