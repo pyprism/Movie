@@ -10,8 +10,10 @@ function getMovieInfo() {
         form: cli()
     }, function (error, response, body) {
         var json = JSON.parse(body);
-        console.log(json['Genre']);
-        //table(json['Rating'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
+        if(!json['error']) {
+            console.log(json['Genre']);
+            //table(json['Rating'] , json['Type'], json['Year'] , json['Genre'] ,json['Title']);
+        }
     });
 
 }
@@ -43,3 +45,12 @@ function table(rating , type , year , genre , movieName) {
 
 }
 
+(function tables() {
+    var table = new Table({ head: ["Adss" , 'Rating' , 'Type' , 'Year' , 'Genre'] });
+
+    table.push(
+        { 'IMDB': ["sa","Sd" , "Sds" , "ADs"] }
+    );
+    console.log(table.toString());
+
+}())
