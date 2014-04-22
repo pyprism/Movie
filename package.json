@@ -1,6 +1,7 @@
 {
   "name": "Movie",
   "version": "0.0.4",
+  "preferGlobal": true ,
   "description": "Search for basic info from IMDB and Rotten Tomato from terminal",
   "bin": {
     "movie": "hiren.js"
