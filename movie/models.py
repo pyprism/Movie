@@ -3,18 +3,29 @@ from django.db import models
 
 class Movie(models.Model):
     name = models.CharField(max_length=800, unique=True)
-    watched = models.IntegerField(default=1)
-    watched_full = models.BooleanField(default=True)
-    rating = models.IntegerField()
-    source = models.CharField(max_length=500, null=True)
+    number_of_times_watched = models.IntegerField(default=1)
     imdb_rating = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
 
-class WatchTime(models.Model):
+class Hiren(models.Model):
     movie = models.ForeignKey(Movie)
+    watched_full = models.BooleanField(default=True)
+    rating = models.IntegerField()
+    source = models.CharField(max_length=500, null=True)
     watched_at = models.DateField()
+    quality_choice = (
+        ('HD', 'HD'),
+        ('Cam', 'Cam'),
+        ('Dvd', 'DVD'),
+        ('480', '480'),
+        ('720', '720'),
+        ('108', '1080'),
+    )
+    video_quality = models.CharField(max_length=3, choices=quality_choice)
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
 
 class MovieType(models.Model):
