@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'movie',
     'rest_framework',
     'rest_framework_swagger',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -182,4 +183,16 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
+}
+
+# Webpack bundle loader
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'CACHE': not DEBUG,
+        'BUNDLE_DIR_NAME': '/',  # must end with slash
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+        'POLL_INTERVAL': 0.1,
+        'IGNORE': ['.+\.hot-update.js', '.+\.map']
+    }
 }
