@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Movie
 from .models import Hiren
-from .models import MovieType
 
 
 class MovieSerializer(serializers.ModelSerializer):
@@ -13,12 +12,6 @@ class MovieSerializer(serializers.ModelSerializer):
 class HirenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hiren
-        fields = '__all__'
-
-
-class MovieTypeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MovieType
         fields = '__all__'
 
 
@@ -62,16 +55,15 @@ class BunnySerializer(serializers.Serializer):
         ('Thr', 'Thriller'),
         ('Wes', 'Western'),
     )
-    movie_type = serializers.MultipleChoiceField(choices=movie_choice)
+    movie_type = serializers.ChoiceField(choices=movie_choice)
 
     def save(self):
         movie = Movie.objects.create(name=self.validated_data['name'],
-                                     imdb_rating=self.validated_data['imdb_rating'])
+                                     imdb_rating=self.validated_data['imdb_rating'],
+                                     movie_type=self.validated_data['movie_type'])
         Hiren.objects.create(movie=movie,
                              watched_full=self.validated_data['watched_full'],
                              rating=self.validated_data['rating'],
                              source=self.validated_data['source'],
                              watched_at=self.validated_data['watched_at'],
                              video_quality=self.validated_data['video_quality'])
-        MovieType.objects.create(movie=movie,
-                                 movie_type=self.validated_data['movie_type'])
