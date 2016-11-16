@@ -3,7 +3,6 @@ from django.db import models
 
 class Movie(models.Model):
     name = models.CharField(max_length=800, unique=True)
-    number_of_times_watched = models.IntegerField(default=1)
     imdb_rating = models.IntegerField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -52,6 +51,6 @@ class MovieType(models.Model):
         ('Mys', 'Mystery'),
         ('Sci', 'Sci-Fi'),
         ('Thr', 'Thriller'),
-        ('Western', 'Western'),
+        ('Wes', 'Western'),
     )
     movie_type = models.CharField(max_length=3, choices=movie_choice)
