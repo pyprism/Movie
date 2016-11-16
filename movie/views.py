@@ -3,7 +3,7 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 from rest_framework_jwt.authentication import JSONWebTokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import viewsets
-from .serializers import HirenSerializer, MovieSerializer, BunnySerializer
+from .serializers import HirenSerializer, MovieSerializer
 from .models import Hiren, Movie
 from rest_framework.response import Response
 from rest_framework import status
@@ -16,15 +16,7 @@ class MovieViewset(viewsets.ModelViewSet):
     queryset = Hiren.objects.all()
     permission_classes = (IsAuthenticated,)
     authentication_classes = (SessionAuthentication, BasicAuthentication, JSONWebTokenAuthentication)
-    serializer_class = BunnySerializer
-
-    def create(self, request, *args, **kwargs):
-        bunny = BunnySerializer(data=self.request.data)
-        if bunny.is_valid():
-            bunny.save()
-            return Response('created', status.HTTP_201_CREATED)
-        else:
-            return Response(bunny.errors, status.HTTP_400_BAD_REQUEST)
+    serializer_class = HirenSerializer
 
     def list(self, request, *args, **kwargs):
         query = Hiren.objects.all()
