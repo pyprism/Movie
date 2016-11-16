@@ -7,16 +7,19 @@ from .models import MovieType
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
+        fields = '__all__'
 
 
 class HirenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hiren
+        fields = '__all__'
 
 
 class MovieTypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = MovieType
+        fields = '__all__'
 
 
 class BunnySerializer(serializers.Serializer):
