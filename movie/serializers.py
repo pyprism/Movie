@@ -10,9 +10,11 @@ class MovieSerializer(serializers.ModelSerializer):
 
 
 class HirenSerializer(serializers.ModelSerializer):
+    movie = MovieSerializer()
+
     class Meta:
         model = Hiren
-        fields = '__all__'
+        fields = ('movie', 'id', 'watched_full', 'rating', 'source', 'video_quality', 'watched_at')
 
 
 class BunnySerializer(serializers.Serializer):
