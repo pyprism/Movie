@@ -8,7 +8,7 @@ var BundleTracker = require('webpack-bundle-tracker');
 module.exports = {
     devtool: 'eval',
     entry: [
-        './static/app/app.jsx'
+        './bunny/app.jsx'
     ],
     output : {
         path: __dirname,
