@@ -19,6 +19,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from rest_framework_swagger.views import get_swagger_view
 from movie import views
 from rest_framework import routers
+from django.views.generic import TemplateView
 
 
 schema_view = get_swagger_view(title='Movie API')
@@ -32,4 +33,5 @@ urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^doc/$', schema_view),
     url(r'^api/', include(router.urls)),
+    url(r'^', TemplateView.as_view(template_name='index.html')),
 ]
