@@ -6,13 +6,13 @@ var webpack = require('webpack');
 var BundleTracker = require('webpack-bundle-tracker');
 
 module.exports = {
-    devtool: 'eval',
+    devtool: 'cheap-module-eval-source-map',
     entry: [
         './bunny/app.jsx'
     ],
     output : {
-        path: __dirname,
-        filename: "./static/js/bundles/[name]-[hash].js"
+        path: path.resolve('./static/js/bundles/'),
+        filename: "[name]-[hash].js"
     },
     module: {
         loaders: [
