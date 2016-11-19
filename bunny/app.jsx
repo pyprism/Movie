@@ -41,8 +41,8 @@ ReactDOM.render(
     <Router history={browserHistory} >
         <Route path="/" component={Login} />
         <Route path="/dashboard" onEnter={authRequired} component={Main}>
-            <IndexRoute onEnter={keyRequired}  component={Dashboard}/>
-            <Route path="stats" onEnter={keyRequired} component={Dashboard} />
+            <IndexRoute component={Dashboard}/>
+            <Route path="stats" component={Dashboard} />
         </Route>
 
     </Router>,
