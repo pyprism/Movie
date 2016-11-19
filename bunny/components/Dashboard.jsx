@@ -4,7 +4,7 @@ import { observable, computed } from "mobx";
 import { observer } from "mobx-react";
 
 
-@observer export default class Dashboard extends React.Component {
+export default class Dashboard extends React.Component {
 
     /*constructor(props) {
         super(props);
@@ -29,15 +29,6 @@ import { observer } from "mobx-react";
     }*/
 
     render() {
-
-        var secretkey;
-            if(sessionStorage.getItem('key')) {
-                secretkey = < GetSecretKey key={sessionStorage.getItem('key')} />;
-            } else {
-               secretkey = < SetSecretKey />;
-            }
-
-
         return (
             <div>
                 I am dumb dashboard
