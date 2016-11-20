@@ -11,6 +11,43 @@ export default class Main extends React.Component {
         browserHistory.push('/');
     }
 
+    componentDidMount() {
+        (function () {
+            /**
+             * function for sidebar autohide
+             */
+            $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+     $("#menu-toggle-2").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled-2");
+        $('#menu ul').hide();
+    });
+
+     function initMenu() {
+      $('#menu ul').hide();
+      $('#menu ul').children('.current').parent().show();
+      //$('#menu ul:first').show();
+      $('#menu li a').click(
+        function() {
+          var checkElement = $(this).next();
+          if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+            return false;
+            }
+          if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+            $('#menu ul:visible').slideUp('normal');
+            checkElement.slideDown('normal');
+            return false;
+            }
+          }
+        );
+      }
+    initMenu();
+        })();
+    }
+
     render() {
         return (
             <div>
@@ -32,7 +69,7 @@ export default class Main extends React.Component {
                             <span className="glyphicon glyphicon-th-large" aria-hidden="true" />
                         </button>
                         <a className="navbar-brand" href="#">
-                            <i className="fa fa-heartbeat fa-4" /> Hiren-Diary</a>
+                            <i className="fa fa-heartbeat fa-4" /> Hiren-Movie</a>
                     </div>
 
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -45,18 +82,11 @@ export default class Main extends React.Component {
                 <div id="wrapper">
                     <div id="sidebar-wrapper">
                         <ul className="sidebar-nav nav-pills nav-stacked" id="menu">
-
-                            <li className="active">
+                            <li>
                                 <Link to="/dashboard/stats/" activeStyle={{ color: '#315561'}}><span className="fa-stack fa-lg pull-left"><i className="fa fa-dashboard fa-stack-1x " /></span> Dashboard</Link>
                             </li>
                             <li>
-                                <Link to="/dashboard/posts/"><span className="fa-stack fa-lg pull-left"><i className="fa fa-archive fa-stack-1x "/></span> Posts</Link>
-                                <ul className="nav-pills nav-stacked bunny">
-                                    <li><Link to="/dashboard/create/"><span className="fa-stack fa-lg pull-left"><i className="fa fa-file-text fa-stack-1x "/></span> Create New Post</Link></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <Link to="/dashboard/tags" activeStyle={{ color: '#315561'}}> <span className="fa-stack fa-lg pull-left"><i className="fa fa-tags fa-stack-1x "/></span> Tags</Link>
+                                <Link to="/dashboard/movie/"><span className="fa-stack fa-lg pull-left"><i className="fa fa-file-movie-o fa-stack-1x "/></span> Save New Movie</Link>
                             </li>
                             <li>
                                 <Link  to="#" activeStyle={{ color: '#315561'}} onClick= { this.logout }> <span className="fa-stack fa-lg pull-left"><i className="fa fa-sign-out fa-stack-1x "/></span> Log Out</Link>
