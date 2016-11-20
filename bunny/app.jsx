@@ -4,6 +4,7 @@ import {Router, Route, browserHistory, IndexRoute} from 'react-router';
 import Login from './components/Login.jsx';
 import Dashboard from './components/Dashboard.jsx';
 import Main from './components/Main.jsx';
+import Movie from './components/Movie.jsx';
 import axios from 'axios';
 
 
@@ -43,6 +44,7 @@ ReactDOM.render(
         <Route path="/dashboard" onEnter={authRequired} component={Main}>
             <IndexRoute component={Dashboard}/>
             <Route path="stats" component={Dashboard} />
+            <Route path="movie" component={Movie} />
         </Route>
 
     </Router>,
