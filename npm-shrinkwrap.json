@@ -47,6 +47,11 @@
       "from": "brace-expansion@>=1.0.0 <2.0.0",
       "resolved": "https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.6.tgz"
     },
+    "classnames": {
+      "version": "2.2.5",
+      "from": "classnames@>=2.1.2 <3.0.0",
+      "resolved": "https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz"
+    },
     "concat-map": {
       "version": "0.0.1",
       "from": "concat-map@0.0.1",
@@ -71,6 +76,11 @@
       "version": "0.1.1",
       "from": "duplexer@>=0.1.1 <0.2.0",
       "resolved": "https://registry.npmjs.org/duplexer/-/duplexer-0.1.1.tgz"
+    },
+    "element-class": {
+      "version": "0.2.2",
+      "from": "element-class@>=0.2.2 <0.3.0",
+      "resolved": "https://registry.npmjs.org/element-class/-/element-class-0.2.2.tgz"
     },
     "encoding": {
       "version": "0.1.12",
@@ -153,6 +163,11 @@
       "version": "0.0.0",
       "from": "jsonify@>=0.0.0 <0.1.0",
       "resolved": "https://registry.npmjs.org/jsonify/-/jsonify-0.0.0.tgz"
+    },
+    "lodash": {
+      "version": "4.17.2",
+      "from": "lodash@>=4.2.0 <5.0.0",
+      "resolved": "https://registry.npmjs.org/lodash/-/lodash-4.17.2.tgz"
     },
     "lodash._getnative": {
       "version": "3.9.1",
@@ -244,6 +259,16 @@
       "from": "react@>=15.3.2 <16.0.0",
       "resolved": "https://registry.npmjs.org/react/-/react-15.4.0.tgz"
     },
+    "react-addons-update": {
+      "version": "15.4.0",
+      "from": "react-addons-update@>=0.14.0 <0.15.0||>=15.0.0 <16.0.0",
+      "resolved": "https://registry.npmjs.org/react-addons-update/-/react-addons-update-15.4.0.tgz"
+    },
+    "react-bootstrap-table": {
+      "version": "2.5.9",
+      "from": "react-bootstrap-table@latest",
+      "resolved": "https://registry.npmjs.org/react-bootstrap-table/-/react-bootstrap-table-2.5.9.tgz"
+    },
     "react-dom": {
       "version": "15.4.0",
       "from": "react-dom@>=15.3.2 <16.0.0",
@@ -280,6 +305,11 @@
           "resolved": "https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-0.9.0.tgz"
         }
       }
+    },
+    "react-toastr": {
+      "version": "2.8.0",
+      "from": "react-toastr@2.8.0",
+      "resolved": "https://registry.npmjs.org/react-toastr/-/react-toastr-2.8.0.tgz"
     },
     "regenerator-runtime": {
       "version": "0.9.6",
