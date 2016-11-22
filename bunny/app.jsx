@@ -19,7 +19,7 @@ function authRequired(nextState, replace) {
                 'token': token
             }
         }).then(function (res) {
-            console.log(res);
+            console.log();
         }).catch(function(response) {
             replace('/');
             console.log(response);
