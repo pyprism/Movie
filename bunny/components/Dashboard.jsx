@@ -2,37 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { observable, computed } from "mobx";
 import { observer } from "mobx-react";
+import { Movies } from '../models/Movies.jsx';
+import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
+@observer
 export default class Dashboard extends React.Component {
 
-    /*constructor(props) {
-        super(props);
-        this.state = {
-            x: "hello"
-        };
+    componentDidMount(){
+        const movies = new Movies();
+        movies.getMovies();
+        console.log(movies.loaded);
+        console.log(movies.movieList);
     }
 
-    bunny() {
-        var secretkey;
-        try {
-            if(sessionStorage.getItem('key')) {
-                return secretkey = < GetSecretKey key={sessionStorage.getItem('key')} />;
-            } else {
-               return  secretkey = < SetSecretKey />;
-            }
-        } catch (e) {
-            if (e instanceof ReferenceError) {
-                return secretkey = < SetSecretKey />;
-            }
-        }
-    }*/
-
     render() {
-        return (
-            <div>
-                I am dumb dashboard
-            </div>
-        )
+        if(new Movies().loaded) {
+            return (
+                <div>
+                    I am dumb dashboard
+                </div>
+            )
+        }
+        return <div>loading all data .... </div>
     }
 }
