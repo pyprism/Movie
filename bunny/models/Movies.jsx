@@ -13,7 +13,7 @@ export class Movies {
 			headers: {'Authorization': "JWT " + sessionStorage.getItem('token')}
 		}).then(action('response action', (response) => {
 			console.log(response.data);
-			this.movies.push(response);
+			this.movies.push(response.data);
             this.loaded = true;
 		})).catch(function(err) {
 			sweetAlert("Oops!", err.data, "error");
