@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard.jsx';
 import Main from './components/Main.jsx';
 import Movie from './components/Movie.jsx';
 import axios from 'axios';
-
+import { Movies } from './models/Movies.jsx';
 
 
 function authRequired(nextState, replace) {
@@ -41,8 +41,8 @@ function keyRequired(nextState, replace){
 ReactDOM.render(
     <Router history={browserHistory} >
         <Route path="/" component={Login} />
-        <Route path="/dashboard" onEnter={authRequired} component={Main}>
-            <IndexRoute component={Dashboard}/>
+        <Route path="/dashboard" onEnter={authRequired} movie={ new Movie() } component={Main}>
+            <IndexRoute movie={ new Movie() } component={Dashboard}/>
             <Route path="stats" component={Dashboard} />
             <Route path="movie" component={Movie} />
         </Route>
