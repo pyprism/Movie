@@ -4,11 +4,14 @@ django-rest-swagger==2.1.0
 django-webpack-loader==0.4.1
 djangorestframework==3.5.3
 djangorestframework-jwt==1.8.0
+freezegun==0.3.8
 itypes==1.1.0
 openapi-codec==1.1.7
 psycopg2==2.6.2
 PyJWT==1.4.2
+python-dateutil==2.6.0
 requests==2.11.1
 simplejson==3.10.0
+six==1.10.0
 uritemplate==3.0.0
 uWSGI==2.0.14
