@@ -33,6 +33,7 @@ urlpatterns = [
     url(r'^api-token-auth/', obtain_jwt_token),
     url(r'^api-token-verify/', verify_jwt_token),
     url(r'^doc/$', schema_view),
+    url(r'^api/movielist/$', views.MovieListView.as_view()),
     url(r'^api/', include(router.urls)),
     url(r'^', TemplateView.as_view(template_name='index.html')),
 ]
