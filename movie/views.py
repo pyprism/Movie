@@ -7,6 +7,17 @@ from .serializers import HirenSerializer, MovieSerializer
 from .models import Hiren, Movie
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework.generics import ListAPIView
+
+
+class MovieListView(ListAPIView):
+    """
+    API endpoint that return list of movies
+    """
+    queryset = Movie.objects.all()
+    permission_classes = (IsAuthenticated,)
+    authentication_classes = (SessionAuthentication, BasicAuthentication, JSONWebTokenAuthentication)
+    serializer_class = MovieSerializer
 
 
 class MovieViewset(viewsets.ModelViewSet):
