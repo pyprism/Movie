@@ -107,3 +107,23 @@ class MovieViewTest(TransactionTestCase):
                                                 'updated_at': '2012-01-14T00:00:00Z',
                                                 'name': "Schindler's List", 'id': 1},
                                            'rating': 10, 'id': 1, 'source': 'DVD disk'})
+
+    @freeze_time("2012-01-14")
+    def test_update_works(self):
+        response = self.client.put('/api/movies/1/', format='json', data={
+            'movie': {
+                'name': "Schindler's List",
+                'imdb_rating': '9',
+                'movie_type': 'His',
+            },
+            'watched_full': False,
+            'rating': '10',
+            'source': 'DVD disk',
+            'video_quality': 'HD',
+            'watched_at': self.current_date
+        })
+        self.assertEqual(response.json(), {'watched_full': False, 'movie': {'created_at': '2012-01-14T00:00:00Z',
+                                                                            'movie_type': 'His', 'id': 1,
+                                                                            'imdb_rating': 9, 'name': "Schindler's List",
+                                                                            'updated_at': '2012-01-14T00:00:00Z'},
+                                           'video_quality': 'HD', 'id': 1, 'watched_at': str(self.current_date), 'source': 'DVD disk', 'rating': 10})
