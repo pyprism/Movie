@@ -127,3 +127,26 @@ class MovieViewTest(TransactionTestCase):
                                                                             'imdb_rating': 9, 'name': "Schindler's List",
                                                                             'updated_at': '2012-01-14T00:00:00Z'},
                                            'video_quality': 'HD', 'id': 1, 'watched_at': str(self.current_date), 'source': 'DVD disk', 'rating': 10})
+
+
+class MovieListViewTest(TransactionTestCase):
+    """
+    Test movie list view
+    """
+    reset_sequences = True
+
+    @freeze_time("2012-01-14")
+    def setUp(self):
+        self.client = APIClient()
+        self.user = User.objects.create_user('hiren', 'a@b.com', 'bunny')
+        self.client.force_authenticate(user=self.user)
+        Movie.objects.create(
+            name="Schindler's List",
+            imdb_rating=9,
+            movie_type='His',
+        )
+
+    def test_movie_listing_works(self):
+        response = self.client.get('/api/movielist/')
+        self.assertEqual(response.json(), [{'updated_at': '2012-01-14T00:00:00Z', 'created_at': '2012-01-14T00:00:00Z',
+                                           'id': 1, 'name': "Schindler's List", 'imdb_rating': 9, 'movie_type': 'His'}])
