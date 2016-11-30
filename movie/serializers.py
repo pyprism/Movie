@@ -23,7 +23,7 @@ class HirenSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         movie_data = validated_data.pop('movie')
-        movie = Movie.objects.create(**movie_data)
+        movie, created = Movie.objects.get_or_create(**movie_data)
         hiren = Hiren.objects.create(movie=movie, **validated_data)
         return hiren
 
