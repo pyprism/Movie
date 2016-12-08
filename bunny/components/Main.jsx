@@ -52,14 +52,15 @@ export default class Main extends React.Component {
         return (
             <div>
                 <Helmet
-                    title="Diary: Dashboard"
+                    title="Movie: Dashboard"
                     link={[
                     {"rel": "shortcut icon", "href": "/static/favicon.ico"},
                     {"rel": "stylesheet", "type": "text/css", "href": "/static/css/bootstrap.min.css"},
                     {"rel": "stylesheet", "type":"text/css", "href": "/static/css/simple-sidebar.css"},
                     {"rel": "stylesheet", "type": "text/css", "href": "/static/css/font-awesome.min.css"},
                     {"rel": "stylesheet", "type": "text/css", "href": "/static/css/sweetalert.css"},
-                    {"rel": "stylesheet", "type": "text/css", "href": "/static/css/bootstrap-datepicker3.standalone.min.css"}
+                    {"rel": "stylesheet", "type": "text/css", "href": "/static/css/bootstrap-datepicker3.standalone.min.css"},
+                    {"rel": "stylesheet", "type": "text/css", "href": "/static/css/react-bootstrap-table.min.css"}
                 ]}
                 />
 
