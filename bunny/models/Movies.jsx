@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed, autorun } from 'mobx';
 import axios from 'axios';
 
 
@@ -12,8 +12,7 @@ export class Movies {
 			url: '/api/movies/',
 			headers: {'Authorization': "JWT " + sessionStorage.getItem('token')}
 		}).then(action('response action', (response) => {
-			console.log(response.data);
-			this.movies.push(response.data);
+			this.movies.push.apply(this.movies, response.data);
             this.loaded = true;
 		})).catch(function(err) {
 			sweetAlert("Oops!", err.data, "error");
@@ -23,4 +22,6 @@ export class Movies {
     @computed get movieList() {
         return this.movies;
     }
+
+
 }
