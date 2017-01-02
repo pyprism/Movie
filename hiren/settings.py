@@ -14,6 +14,7 @@ import os
 import json
 import datetime
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -160,6 +161,7 @@ STATICFILES_DIRS = (
 # Django Rest Framework specific settings
 
 REST_FRAMEWORK = {
+    'DATE_INPUT_FORMATS': ("%d-%m-%Y", ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer'
