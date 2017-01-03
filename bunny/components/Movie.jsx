@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { browserHistory } from 'react-router';
 
 export default class Movie extends React.Component {
 
@@ -25,7 +26,10 @@ export default class Movie extends React.Component {
                 'Authorization': "JWT " + sessionStorage.getItem('token')
             }
         }).then(function (response) {
-            console.log(response);
+            if(response.statusText === "Created") {
+                sweetAlert("Saved", "New Movie Saved Successfully", "info");
+                browserHistory.push('/dashboard/');
+            }
         }).catch(function (error) {
             console.log(error);
         })
