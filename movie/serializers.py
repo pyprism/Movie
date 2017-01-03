@@ -23,8 +23,12 @@ class HirenSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         movie_data = validated_data.pop('movie')
-        movie, created = Movie.objects.get_or_create(**movie_data)
-        hiren = Hiren.objects.create(movie=movie, **validated_data)
+        mov = Movie.objects.filter(name=movie_data['name'])
+        if mov.exists():
+            hiren = Hiren.objects.create(movie=mov[0], **validated_data)
+        else:
+            mov_obj = Movie.objects.create(**movie_data)
+            hiren = Hiren.objects.create(movie=mov_obj, **validated_data)
         return hiren
 
     def update(self, instance, validated_data):
