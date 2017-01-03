@@ -84,7 +84,7 @@ export default class Main extends React.Component {
                     <div id="sidebar-wrapper">
                         <ul className="sidebar-nav nav-pills nav-stacked" id="menu">
                             <li>
-                                <Link to="/dashboard/stats/" activeStyle={{ color: '#315561'}}><span className="fa-stack fa-lg pull-left"><i className="fa fa-dashboard fa-stack-1x " /></span> Dashboard</Link>
+                                <Link to="/dashboard/" ><span className="fa-stack fa-lg pull-left"><i className="fa fa-dashboard fa-stack-1x " /></span> Dashboard</Link>
                             </li>
                             <li>
                                 <Link to="/dashboard/movie/"><span className="fa-stack fa-lg pull-left"><i className="fa fa-file-movie-o fa-stack-1x "/></span> Save New Movie</Link>
