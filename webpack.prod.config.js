@@ -36,10 +36,18 @@ module.exports = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoErrorsPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-		compress: { warnings: false },
-      		comments: false,
-      		mangle: true,
-      		minimize: true
+		mangle: true,
+     		compress: {
+        		warnings: false, // Suppress uglification warnings
+        		pure_getters: true,
+        		unsafe: true,
+        		unsafe_comps: true,
+        		screw_ie8: true
+      		},
+      		output: {
+        		comments: false,
+      		},
+      		exclude: [/\.min\.js$/gi] 
 	}),
 	new BundleTracker({filename: './webpack-stats.json'})
     ]
