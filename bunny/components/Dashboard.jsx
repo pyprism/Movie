@@ -1,26 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { observable, computed, toJS } from "mobx";
 import { observer } from "mobx-react";
-import { Movies } from '../models/Movies.jsx';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
-import { Provider } from 'mobx-react';
 
 
 @observer
 export default class Dashboard extends React.Component {
-
-    //constructor(props) {
-    //    super(props);
-    //}
-
+    /**
+     * Show tables
+     */
     componentDidMount(){
-        //const movies = new Movies();
         this.props.route.movie.getMovies();
-        //console.log(movies.loaded);
-        //console.log(movies.movieList);
-        //console.log(this.props.route.movie.loaded);
-        //console.log(toJS(this.props.route.movie.movies));
     }
 
     render() {
@@ -91,17 +80,11 @@ export default class Dashboard extends React.Component {
                 return 'Undefined';
             }
 
-            function filterName(cell, row) {
-                console.log(cell);
-                console.log(row);
-                return cell.movie.name;
-            }
-
             return (
                 <div>
-                    <BootstrapTable data={toJS(this.props.route.movie.movieList)} striped={true} hover={true} condensed={true} pagination={true} search={true}>
+                    <BootstrapTable data={toJS(this.props.route.movie.movieList)} striped={true} hover={true} condensed={true} pagination={true}>
                         <TableHeaderColumn dataField="id" isKey={true}>ID</TableHeaderColumn>
-                        <TableHeaderColumn dataField="movie" filterValue={filterName} dataFormat={ movieName} >Name</TableHeaderColumn>
+                        <TableHeaderColumn dataField="movie" dataFormat={ movieName} >Name</TableHeaderColumn>
                         <TableHeaderColumn dataField="movie" dataFormat={ movieIMDB} >IMDB Rating</TableHeaderColumn>
                         <TableHeaderColumn dataField="movie" dataFormat={ movieType} >Movie Type</TableHeaderColumn>
                         <TableHeaderColumn dataField="rating" >Rating</TableHeaderColumn>
