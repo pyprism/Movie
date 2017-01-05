@@ -19,7 +19,7 @@ export default class Login extends React.Component {
         }).then(function (response) {
             if (response.data['token']) {
                 sessionStorage.setItem('token', response.data['token']);
-                browserHistory.push('/dashboard/');
+                browserHistory.push('/dashboard/movie/');
             }
         })
             .catch(function (response) {
