@@ -31,14 +31,11 @@ export default class Movie extends React.Component {
                 browserHistory.push('/dashboard/');
             }
         }).catch(function (error) {
-            console.log(error);
+            console.error(error);
         })
     }
 
-    componentDidMount() {
-
-    }
-
+    
     render (){
         return (
             <div className="container">
@@ -115,7 +112,7 @@ export default class Movie extends React.Component {
                             <div className="form-group">
                                 <label className="control-label col-sm-3">Watched At</label>
                                 <div className="col-sm-9">
-                                    <input  data-provide="datepicker"  placeholder="Date" data-date-format="dd-mm-yyyy" required ref="watched_at" className="form-control input-lg" />
+                                    <input  data-provide="datepicker"  placeholder="Date" data-date-format="yyyy-mm-dd" required ref="watched_at" className="form-control input-lg" />
                                 </div>
                             </div>
                             <div className="form-group">
