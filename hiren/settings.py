@@ -161,7 +161,6 @@ STATICFILES_DIRS = (
 # Django Rest Framework specific settings
 
 REST_FRAMEWORK = {
-    'DATE_INPUT_FORMATS': ("%d-%m-%Y", ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer'
@@ -198,3 +197,4 @@ WEBPACK_LOADER = {
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
     }
 }
+
