@@ -1,13 +1,15 @@
 import React from 'react';
+import { toJS } from "mobx";
 import { observer } from "mobx-react";
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 
 
 @observer
 export default class Dashboard extends React.Component {
-    /**
-     * Show tables
+    /***
+     * show table
      */
+    // TODO add search feature
     componentDidMount(){
         this.props.route.movie.getMovies();
     }
