@@ -4,8 +4,15 @@ import axios from 'axios';
 import { browserHistory } from 'react-router';
 
 export default class Movie extends React.Component {
+    /***
+     * Data input form
+     * @param e
+     */
 
     form(e) {
+        /***
+         * Handle ajax
+         */
         e.preventDefault();
         axios({
             method: 'post',
@@ -32,6 +39,7 @@ export default class Movie extends React.Component {
             }
         }).catch(function (error) {
             console.error(error);
+            sweetAlert('Error', 'Check console!', 'error');
         })
     }
 
