@@ -111,7 +111,7 @@ export default class Movie extends React.Component {
                                         <option value="His">History</option>
                                         <option value="Mus">Music</option>
                                         <option value="Mys">Mystery</option>
-                                        <option value="Mci">Sci-Fi</option>
+                                        <option value="Sci">Sci-Fi</option>
                                         <option value="Thr">Thriller</option>
                                         <option value="Wes">Western</option>
                                     </select>
