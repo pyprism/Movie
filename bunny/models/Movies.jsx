@@ -7,6 +7,7 @@ export class Movies {
 	@observable movies = [];
 
 	@action getMovies() {
+		this.movies = [];
 		axios({
 			method: 'get',
 			url: '/api/movies/',
