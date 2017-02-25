@@ -3,6 +3,10 @@ body  {
     font-family: "Open Sans", Helvetica, sans-serif;
 }
 
+:-moz-ui-invalid:not(output) {
+    box-shadow: none;
+}
+
 .login form {
     text-align: center;
 }
