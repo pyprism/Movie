@@ -34,7 +34,7 @@ class Movie(models.Model):
 
 
 class Hiren(models.Model):
-    movie = models.ForeignKey(Movie)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     watched_full = models.BooleanField(default=True)
     rating = models.IntegerField()
     source = models.CharField(max_length=500, null=True)
